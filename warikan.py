@@ -17,7 +17,7 @@ for i in range(length):
     member.append(st.text_input(f"{i+1}人目の名前を入力してください"))
 
 for name in member:
-    money[name] = st.number_input(f"{name}さんは何円払いましたか？", min_value=0, step=1, value=0)
+    money[name] = st.number_input(f"{name}さんは何円払いましたか？", min_value=0, step=1, value=0, key=name)
     total = total + money[name]
 
 st.divider()
@@ -51,3 +51,4 @@ if st.button("精算結果を表示する"):
             del money[name_max]  
     
     st.balloons()    
+
