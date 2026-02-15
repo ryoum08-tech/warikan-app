@@ -7,6 +7,8 @@ total = 0
 
 st.title("割り勘アプリ")
 
+st.set_page_config(page_title="割り勘君", page_icon="💴")
+
 if st.sidebar.button("アプリを初期化"):
     st.session_state.clear()
     st.rerun()
@@ -52,5 +54,6 @@ if st.button("精算結果を表示する"):
             del money[name_max]  
     
     st.balloons()    
+
 
 
