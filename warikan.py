@@ -16,9 +16,10 @@ length = st.number_input("何人で割り勘しますか？", value=2)
 for i in range(length):
     member.append(st.text_input(f"{i+1}人目の名前を入力してください"))
 
-for name in member:
-    money[name] = st.number_input(f"{name}さんは何円払いましたか？", min_value=0, step=1, value=0, key=name)
-    total = total + money[name]
+for i, name in enumerate(member):
+    if name.strip():
+        money[name] = st.number_input(f"{name}さんは何円払いましたか？", min_value=0, step=1, value=0, key=f"input_{name}_{i}")
+        total = total + money[name]
 
 st.divider()
 
@@ -51,4 +52,5 @@ if st.button("精算結果を表示する"):
             del money[name_max]  
     
     st.balloons()    
+
 
